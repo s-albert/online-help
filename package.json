@@ -59,10 +59,15 @@
       "type": "object",
       "title": "Online help configuration",
       "properties": {
-        "browser-help.enableRxJs": {
+        "online-help.enableRxjs": {
           "type": "boolean",
           "default": true,
-          "description": "When enabled, shows help for rxjs."
+          "description": "When enabled, shows help for rxjs operators."
+        },
+        "online-help.enableTypescript": {
+          "type": "boolean",
+          "default": true,
+          "description": "When enabled, shows help for typescript keywords."
         }
       }
     }

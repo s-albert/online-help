@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import { Rxjs } from './rxjs';
+import { Typescript } from './typescript';
 
 /**
  * Runs command
@@ -15,5 +16,5 @@ function regCommand(commandName: string, implFunc: () => void): vscode.Disposabl
 }
 
 export function activate(context: vscode.ExtensionContext): void {
-  context.subscriptions.push(regCommand('online-help.openLink', () => Rxjs.openLink()));
+  context.subscriptions.push(regCommand('online-help.openLink', () => Rxjs.openLink() || Typescript.openLink()));
 }

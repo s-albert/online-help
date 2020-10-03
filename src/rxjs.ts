@@ -138,23 +138,32 @@ const rxjsCreatonOperators: string[] = [
 ];
 
 export class Rxjs {
-  static openLink(): void {
-    const activeTextEditor = vscode.window.activeTextEditor;
-    if (activeTextEditor) {
-      const selection = activeTextEditor.selection;
-      if (!selection.isEmpty) {
-        const text = activeTextEditor.document.getText(selection).toLowerCase().trim();
-        if (text === 'rxjs') {
-          vscode.env.openExternal(
-            vscode.Uri.parse('https://xgrommx.github.io/rx-book/content/which_operator_do_i_use/index.html')
-          );
-        }
-        if (rxjsCreatonOperators.indexOf(text) >= 0) {
-          vscode.env.openExternal(vscode.Uri.parse(`https://devdocs.io/rxjs/api/function/${text}.html`));
-        } else if (rxjsOperators.indexOf(text) >= 0) {
-          vscode.env.openExternal(vscode.Uri.parse(`https://devdocs.io/rxjs/api/operators/${text}.html`));
+  static openLink(): boolean {
+    if (vscode.workspace.getConfiguration().get('online-help.enableRxjs', true)) {
+      const activeTextEditor = vscode.window.activeTextEditor;
+      if (activeTextEditor) {
+        const selection = activeTextEditor.selection;
+        if (!selection.isEmpty) {
+          const text = activeTextEditor.document.getText(selection).trim();
+          if (text === 'rxjs') {
+            vscode.env.openExternal(
+              vscode.Uri.parse('https://xgrommx.github.io/rx-book/content/which_operator_do_i_use/index.html')
+            );
+            return true;
+          }
+          if (rxjsCreatonOperators.indexOf(text) >= 0) {
+            vscode.env.openExternal(vscode.Uri.parse(`https://devdocs.io/rxjs/api/function/${text}.html`));
+            return true;
+          } else if (rxjsOperators.indexOf(text) >= 0) {
+            vscode.env.openExternal(vscode.Uri.parse(`https://devdocs.io/rxjs/api/operators/${text}.html`));
+            return true;
+          } else {
+            return false;
+          }
         }
       }
+    } else {
+      return false;
     }
   }
 }

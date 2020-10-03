@@ -152,10 +152,12 @@ export class Rxjs {
             return true;
           }
           if (rxjsCreatonOperators.indexOf(text) >= 0) {
-            vscode.env.openExternal(vscode.Uri.parse(`https://devdocs.io/rxjs/api/function/${text}.html`));
+            const keyword = text.toLowerCase();
+            vscode.env.openExternal(vscode.Uri.parse(`https://devdocs.io/rxjs/api/function/${keyword}`));
             return true;
           } else if (rxjsOperators.indexOf(text) >= 0) {
-            vscode.env.openExternal(vscode.Uri.parse(`https://devdocs.io/rxjs/api/operators/${text}.html`));
+            const keyword = text.toLowerCase();
+            vscode.env.openExternal(vscode.Uri.parse(`https://devdocs.io/rxjs/api/operators/${keyword}`));
             return true;
           } else {
             return false;

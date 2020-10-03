@@ -1,0 +1,86 @@
+{
+  "name": "online-help",
+  "displayName": "Online Help",
+  "description": "Context sensitive online help",
+  "version": "0.1.0",
+  "publisher": "salbert",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "lint": "node ./node_modules/eslint/bin/eslint src/**/*.ts",
+    "compile": "npm run lint && tsc -p ./",
+    "publish": "vsce publish",
+    "postinstall": "node ./node_modules/vscode/bin/install"
+  },
+  "icon": "images/icon.png",
+  "keywords": [
+    "online",
+    "help",
+    "rxjs"
+  ],
+  "galleryBanner": {
+    "color": "#252627",
+    "theme": "dark"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.49.0"
+  },
+  "categories": [
+    "Other",
+    "Formatters"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/src/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "online-help.openLink",
+        "title": "Open help"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "online-help.openLink",
+          "key": "ctrl+shift+f1",
+          "group": "9_cutcopypaste"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "online-help.openLink",
+        "key": "ctrl+shift+f1"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Online help configuration",
+      "properties": {
+        "browser-help.enableRxJs": {
+          "type": "boolean",
+          "default": true,
+          "description": "When enabled, shows help for rxjs."
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^10.17.35",
+    "@typescript-eslint/eslint-plugin": "^4.2.0",
+    "@typescript-eslint/parser": "^4.2.0",
+    "eslint": "^7.10.0",
+    "typescript": "^3.9.7",
+    "vscode": "1.1.37"
+  },
+  "dependencies": {},
+  "bugs": {
+    "url": "https://github.com/s-albert/online-help/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s-albert/online-help.git"
+  }
+}

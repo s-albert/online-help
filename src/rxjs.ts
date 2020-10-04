@@ -141,9 +141,14 @@ export class Rxjs {
   static openLink(): boolean {
     if (vscode.workspace.getConfiguration().get('online-help.enableRxjs', true)) {
       const activeTextEditor = vscode.window.activeTextEditor;
-      if (activeTextEditor) {
-        const selection = activeTextEditor.selection;
-        if (!selection.isEmpty) {
+      if (
+        activeTextEditor &&
+        (activeTextEditor.document.languageId === 'javascript' || activeTextEditor.document.languageId === 'typescript')
+      ) {
+        const selection = activeTextEditor.document.getWordRangeAtPosition(
+          vscode.window.activeTextEditor.selection.active
+        );
+        if (selection && !selection.isEmpty) {
           const text = activeTextEditor.document.getText(selection).trim();
           if (text === 'rxjs') {
             vscode.env.openExternal(

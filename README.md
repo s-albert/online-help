@@ -11,4 +11,6 @@
 
 ## Available online Help
 * RxJs operators
+* Typescript basic types
+...will be extended...
 

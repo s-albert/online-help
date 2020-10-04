@@ -20,9 +20,11 @@ export class Typescript {
   static openLink(): boolean {
     if (vscode.workspace.getConfiguration().get('online-help.enableTypescript', true)) {
       const activeTextEditor = vscode.window.activeTextEditor;
-      if (activeTextEditor) {
-        const selection = activeTextEditor.selection;
-        if (!selection.isEmpty) {
+      if (activeTextEditor && activeTextEditor.document.languageId === 'typescript') {
+        const selection = activeTextEditor.document.getWordRangeAtPosition(
+          vscode.window.activeTextEditor.selection.active
+      );
+        if (selection && !selection.isEmpty) {
           const text = activeTextEditor.document.getText(selection).toLowerCase().trim();
           if (text === 'typescript') {
             vscode.env.openExternal(vscode.Uri.parse('https://www.typescriptlang.org'));

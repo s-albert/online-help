@@ -2,7 +2,7 @@
   "name": "online-help",
   "displayName": "Online Help",
   "description": "Context sensitive online help",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "salbert",
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -15,7 +15,9 @@
   "keywords": [
     "online",
     "help",
-    "rxjs"
+    "rxjs",
+    "typescript",
+    "css"
   ],
   "galleryBanner": {
     "color": "#252627",
@@ -68,6 +70,11 @@
           "type": "boolean",
           "default": true,
           "description": "When enabled, shows help for typescript keywords."
+        },
+        "online-help.enableCss": {
+          "type": "boolean",
+          "default": true,
+          "description": "When enabled, shows help for CSS."
         }
       }
     }
@@ -78,7 +85,8 @@
     "@typescript-eslint/parser": "^4.2.0",
     "eslint": "^7.10.0",
     "typescript": "^3.9.7",
-    "vscode": "1.1.37"
+    "vscode": "1.1.37",
+    "yarn": "^1.22.10"
   },
   "dependencies": {},
   "bugs": {

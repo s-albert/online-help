@@ -1,5 +1,7 @@
 # Online Help
-"Online Help" is a Visual Studio Code extension that offers context sensitive help.
+"Online Help" is a Visual Studio Code extension that offers context sensitive online help. For special topis like rxjs it opens appropriate documentation pages. If no specific documentation is defined for the selected keyword in your editor,
+it searches on devdocs.io with the vscode language and the keyword.
+If the language is not defined for devdocs, it googles for the keyword and adds the language id of the open file to get better search results.
 
 ## Commands
 ### Open online help
@@ -9,8 +11,10 @@
 ## Configuration
 * There are options to enable/disable specific online help (see contributions).
 
-## Available online Help
-* RxJs operators
-* Typescript basic types
+## Specific online help pages
+* RxJs operators (javascript, typescript, typescriptreact)
+* Typescript basic types (typescript, typescriptreact)
+* Html (html)
+* Devdocs (typescript, typescriptreact, javascript, html, css, c, cpp, java, python);
 ...will be extended...
 

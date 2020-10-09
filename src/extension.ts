@@ -1,7 +1,8 @@
 import * as vscode from 'vscode';
 import { Rxjs } from './rxjs';
 import { Typescript } from './typescript';
-import { Css } from './css';
+import { Html } from './html';
+import { Devdocs } from './devdocs';
 import { Fallback } from './fallback';
 
 /**
@@ -19,6 +20,9 @@ function regCommand(commandName: string, implFunc: () => void): vscode.Disposabl
 
 export function activate(context: vscode.ExtensionContext): void {
   context.subscriptions.push(
-    regCommand('online-help.openLink', () => Rxjs.openLink() || Typescript.openLink() || Css.openLink() || Fallback.openLink())
+    regCommand(
+      'online-help.openLink',
+      () => Rxjs.openLink() || Typescript.openLink() || Html.openLink() || Devdocs.openLink() || Fallback.openLink()
+    )
   );
 }

@@ -143,7 +143,9 @@ export class Rxjs {
       const activeTextEditor = vscode.window.activeTextEditor;
       if (
         activeTextEditor &&
-        (activeTextEditor.document.languageId === 'javascript' || activeTextEditor.document.languageId === 'typescript')
+        (activeTextEditor.document.languageId === 'javascript' ||
+          activeTextEditor.document.languageId === 'typescript' ||
+          activeTextEditor.document.languageId === 'typescriptreact')
       ) {
         const selection = activeTextEditor.document.getWordRangeAtPosition(
           vscode.window.activeTextEditor.selection.active

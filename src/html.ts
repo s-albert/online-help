@@ -1,174 +1,139 @@
-// import * as vscode from 'vscode';
+import * as vscode from 'vscode';
 
-// const rxjsOperators: string[] = [
-//   'ajax',
-//   'bindCallback',
-//   'bindNodeCallback',
-//   'defer',
-//   'empty',
-//   'from',
-//   'fromEvent',
-//   'fromEventPattern',
-//   'generate',
-//   'interval',
-//   'of',
-//   'range',
-//   'throwError',
-//   'timer',
-//   'iif',
-//   'combineLatest',
-//   'concat',
-//   'forkJoin',
-//   'merge',
-//   'race',
-//   'zip',
-//   'buffer',
-//   'bufferCount',
-//   'bufferTime',
-//   'bufferToggle',
-//   'bufferWhen',
-//   'concatMap',
-//   'concatMapTo',
-//   'exhaust',
-//   'exhaustMap',
-//   'expand',
-//   'groupBy',
-//   'map',
-//   'mapTo',
-//   'mergeMap',
-//   'mergeMapTo',
-//   'mergeScan',
-//   'pairwise',
-//   'partition',
-//   'pluck',
-//   'scan',
-//   'switchMap',
-//   'switchMapTo',
-//   'window',
-//   'windowCount',
-//   'windowTime',
-//   'windowToggle',
-//   'windowWhen',
-//   'audit',
-//   'auditTime',
-//   'debounce',
-//   'debounceTime',
-//   'distinct',
-//   'distinctKey',
-//   'distinctUntilChanged',
-//   'distinctUntilKeyChanged',
-//   'elementAt',
-//   'filter',
-//   'first',
-//   'ignoreElements',
-//   'last',
-//   'sample',
-//   'sampleTime',
-//   'single',
-//   'skip',
-//   'skipLast',
-//   'skipUntil',
-//   'skipWhile',
-//   'take',
-//   'takeLast',
-//   'takeUntil',
-//   'takeWhile',
-//   'throttle',
-//   'throttleTime',
-//   'combineAll',
-//   'concatAll',
-//   'exhaust',
-//   'mergeAll',
-//   'startWith',
-//   'withLatestFrom',
-//   'multicast',
-//   'publish',
-//   'publishBehavior',
-//   'publishLast',
-//   'publishReplay',
-//   'share',
-//   'catchError',
-//   'retry',
-//   'retryWhen',
-//   'tap',
-//   'delay',
-//   'delayWhen',
-//   'dematerialize',
-//   'materialize',
-//   'observeOn',
-//   'subscribeOn',
-//   'timeInterval',
-//   'timestamp',
-//   'timeout',
-//   'timeoutWith',
-//   'toArray',
-//   'defaultIfEmpty',
-//   'every',
-//   'find',
-//   'findIndex',
-//   'isEmpty',
-//   'count',
-//   'max',
-//   'min',
-//   'reduce',
-// ];
+const htmlElements: string[] = [
+  'a',
+  'abbr',
+  'address',
+  'area',
+  'article',
+  'aside',
+  'audio',
+  'b',
+  'base',
+  'bdi',
+  'bdo',
+  'blockquote',
+  'body',
+  'br',
+  'button',
+  'canvas',
+  'caption',
+  'cite',
+  'code',
+  'col',
+  'colgroup',
+  'data',
+  'datalist',
+  'dd',
+  'del',
+  'details',
+  'dfn',
+  'dialog',
+  'div',
+  'dl',
+  'dt',
+  'em',
+  'embed',
+  'fieldset',
+  'figcaption',
+  'figure',
+  'footer',
+  'form',
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'head',
+  'header',
+  'hr',
+  'html',
+  'i',
+  'iframe',
+  'img',
+  'input',
+  'ins',
+  'kbd',
+  'label',
+  'legend',
+  'li',
+  'link',
+  'main',
+  'map',
+  'mark',
+  'meta',
+  'meter',
+  'nav',
+  'noscript',
+  'object',
+  'ol',
+  'optgroup',
+  'option',
+  'output',
+  'p',
+  'param',
+  'picture',
+  'pre',
+  'progress',
+  'q',
+  'rb',
+  'rp',
+  'rt',
+  'rtc',
+  'ruby',
+  's',
+  'samp',
+  'script',
+  'section',
+  'select',
+  'slot',
+  'small',
+  'source',
+  'span',
+  'strong',
+  'style',
+  'sub',
+  'summary',
+  'sup',
+  'table',
+  'tbody',
+  'td',
+  'template',
+  'textarea',
+  'tfoot',
+  'th',
+  'thead',
+  'time',
+  'title',
+  'tr',
+  'track',
+  'u',
+  'ul',
+  'var',
+  'video',
+  'wbr',
+];
 
-// const rxjsCreatonOperators: string[] = [
-//   'ajax',
-//   'bindCallback',
-//   'bindNodeCallback',
-//   'defer',
-//   'empty',
-//   'from',
-//   'fromEvent',
-//   'fromEventPattern',
-//   'generate',
-//   'interval',
-//   'of',
-//   'range',
-//   'throwError',
-//   'timer',
-//   'iif',
-//   'combineLatest',
-//   'concat',
-//   'forkJoin',
-//   'merge',
-//   'race',
-//   'zip',
-// ];
-
-// export class Html {
-//   static openLink(): boolean {
-//     if (vscode.workspace.getConfiguration().get('online-help.enableHtml', true)) {
-//       const activeTextEditor = vscode.window.activeTextEditor;
-//       if (
-//         activeTextEditor && activeTextEditor.document.languageId === 'html') {
-//         const selection = activeTextEditor.document.getWordRangeAtPosition(
-//           vscode.window.activeTextEditor.selection.active
-//         );
-//         if (!selection.isEmpty) {
-//           const text = activeTextEditor.document.getText(selection).trim();
-//           if (text === 'rxjs') {
-//             vscode.env.openExternal(
-//               vscode.Uri.parse('https://xgrommx.github.io/rx-book/content/which_operator_do_i_use/index.html')
-//             );
-//             return true;
-//           }
-//           if (rxjsCreatonOperators.indexOf(text) >= 0) {
-//             const keyword = text.toLowerCase();
-//             vscode.env.openExternal(vscode.Uri.parse(`https://devdocs.io/rxjs/api/function/${keyword}`));
-//             return true;
-//           } else if (rxjsOperators.indexOf(text) >= 0) {
-//             const keyword = text.toLowerCase();
-//             vscode.env.openExternal(vscode.Uri.parse(`https://devdocs.io/rxjs/api/operators/${keyword}`));
-//             return true;
-//           } else {
-//             return false;
-//           }
-//         }
-//       }
-//     } else {
-//       return false;
-//     }
-//   }
-// }
+export class Html {
+  static openLink(): boolean {
+    if (vscode.workspace.getConfiguration().get('online-help.enableHtml', true)) {
+      const activeTextEditor = vscode.window.activeTextEditor;
+      if (activeTextEditor && activeTextEditor.document.languageId === 'html') {
+        const selection = activeTextEditor.document.getWordRangeAtPosition(
+          vscode.window.activeTextEditor.selection.active
+        );
+        if (selection && !selection.isEmpty) {
+          const text = activeTextEditor.document.getText(selection).toLowerCase().trim();
+          {
+            if (htmlElements.indexOf(text) >= 0) {
+              vscode.env.openExternal(vscode.Uri.parse(`https://devdocs.io/html/element/${text}`));
+              return true;
+            }
+          }
+        }
+      }
+    }
+    return false;
+  }
+}

@@ -20,10 +20,13 @@ export class Typescript {
   static openLink(): boolean {
     if (vscode.workspace.getConfiguration().get('online-help.enableTypescript', true)) {
       const activeTextEditor = vscode.window.activeTextEditor;
-      if (activeTextEditor && activeTextEditor.document.languageId === 'typescript') {
+      if (
+        (activeTextEditor && activeTextEditor.document.languageId === 'typescript') ||
+        activeTextEditor.document.languageId === 'typescriptreact'
+      ) {
         const selection = activeTextEditor.document.getWordRangeAtPosition(
           vscode.window.activeTextEditor.selection.active
-      );
+        );
         if (selection && !selection.isEmpty) {
           const text = activeTextEditor.document.getText(selection).toLowerCase().trim();
           if (text === 'typescript') {

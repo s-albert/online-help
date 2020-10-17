@@ -15,6 +15,6 @@ If the language is not defined for devdocs, it googles for the keyword and adds 
 * RxJs operators (javascript, typescript, typescriptreact)
 * Typescript basic types (typescript, typescriptreact)
 * Html (html)
-* Devdocs (typescript, typescriptreact, javascript, html, css, c, cpp, java, python);
+* Devdocs (typescript, typescriptreact, javascript, html, css, c, c++, java, python, ruby, rust, perl, php);
 ...will be extended...
 

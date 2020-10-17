@@ -1,8 +1,22 @@
 import * as vscode from 'vscode';
 
-const vsLanguages = ['typescript', 'typescriptreact', 'javascript', 'html', 'css', 'c', 'cpp', 'java', 'python'];
+const vsLanguages = [
+  'typescript',
+  'typescriptreact',
+  'javascript',
+  'html',
+  'css',
+  'c',
+  'cpp',
+  'java',
+  'python',
+  'ruby',
+  'rust',
+  'perl',
+  'php',
+];
 
-const dedocsLanguages = ['ts', 'ts', 'js', 'html', 'css', 'c', 'cpp', 'java', 'python'];
+const dedocsLanguages = ['ts', 'ts', 'js', 'html', 'css', 'c', 'cpp', 'java', 'python', 'ruby', 'rust', 'perl', 'php'];
 
 export class Devdocs {
   static openLink(): boolean {

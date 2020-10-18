@@ -24,7 +24,7 @@ export class Devdocs {
       const activeTextEditor = vscode.window.activeTextEditor;
       const languageId = activeTextEditor.document.languageId;
       const index = vsLanguages.indexOf(languageId);
-      if (index >= -1) {
+      if (index > -1) {
         let selection: vscode.Range = activeTextEditor.selection;
         if (selection) {
           if (selection.isEmpty) {

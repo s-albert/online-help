@@ -50,10 +50,12 @@ export class Typescript {
               case 'enum':
                 vscode.env.openExternal(vscode.Uri.parse('https://www.typescriptlang.org/docs/handbook/enums.html'));
                 return true;
-                case 'null':
-                  case 'undefined':
-                    vscode.env.openExternal(vscode.Uri.parse('https://www.typescriptlang.org/docs/handbook/basic-types.html#null-and-undefined'));
-                    return true;
+              case 'null':
+              case 'undefined':
+                vscode.env.openExternal(
+                  vscode.Uri.parse('https://www.typescriptlang.org/docs/handbook/basic-types.html#null-and-undefined')
+                );
+                return true;
               default:
                 if (text.startsWith('<') && text.endsWith('>')) {
                   vscode.env.openExternal(
@@ -66,6 +68,6 @@ export class Typescript {
         }
       }
     }
-    return true;
+    return false;
   }
 }

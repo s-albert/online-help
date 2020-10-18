@@ -14,8 +14,6 @@ const basicTsTypes: string[] = [
   'object',
 ];
 
-const nullAndUndefinedTsTypes: string[] = ['null', 'undefined'];
-
 export class Typescript {
   static openLink(): boolean {
     if (vscode.workspace.getConfiguration().get('online-help.enableTypescript', true)) {
@@ -29,27 +27,45 @@ export class Typescript {
         );
         if (selection && !selection.isEmpty) {
           const text = activeTextEditor.document.getText(selection).toLowerCase().trim();
-          if (text === 'typescript') {
-            vscode.env.openExternal(vscode.Uri.parse('https://www.typescriptlang.org'));
-            return true;
-          }
           if (basicTsTypes.indexOf(text) >= 0) {
             vscode.env.openExternal(
               vscode.Uri.parse(`https://www.typescriptlang.org/docs/handbook/basic-types.html#${text}`)
             );
             return true;
-          } else if (nullAndUndefinedTsTypes.indexOf(text) >= 0) {
-            vscode.env.openExternal(
-              vscode.Uri.parse(`https://www.typescriptlang.org/docs/handbook/basic-types.html#null-and-undefined`)
-            );
-            return true;
           } else {
-            return false;
+            switch (text) {
+              case 'interface':
+                vscode.env.openExternal(
+                  vscode.Uri.parse('https://www.typescriptlang.org/docs/handbook/interfaces.html')
+                );
+                return true;
+              case 'function':
+                vscode.env.openExternal(
+                  vscode.Uri.parse('https://www.typescriptlang.org/docs/handbook/functions.html')
+                );
+                return true;
+              case 'class':
+                vscode.env.openExternal(vscode.Uri.parse('https://www.typescriptlang.org/docs/handbook/classes.html'));
+                return true;
+              case 'enum':
+                vscode.env.openExternal(vscode.Uri.parse('https://www.typescriptlang.org/docs/handbook/enums.html'));
+                return true;
+                case 'null':
+                  case 'undefined':
+                    vscode.env.openExternal(vscode.Uri.parse('https://www.typescriptlang.org/docs/handbook/basic-types.html#null-and-undefined'));
+                    return true;
+              default:
+                if (text.startsWith('<') && text.endsWith('>')) {
+                  vscode.env.openExternal(
+                    vscode.Uri.parse('https://www.typescriptlang.org/docs/handbook/generics.html')
+                  );
+                  return true;
+                }
+            }
           }
         }
       }
-    } else {
-      return false;
     }
+    return true;
   }
 }

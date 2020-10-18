@@ -2,7 +2,7 @@
   "name": "online-help",
   "displayName": "Online Help",
   "description": "Context sensitive online help",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "publisher": "salbert",
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -71,10 +71,10 @@
           "default": true,
           "description": "When enabled, shows help for typescript keywords."
         },
-        "online-help.enableHtml": {
+        "online-help.enableDotnet": {
           "type": "boolean",
           "default": true,
-          "description": "When enabled, shows help for html."
+          "description": "When enabled, shows help for dotnet."
         },
         "online-help.enableDevdocs": {
           "type": "boolean",

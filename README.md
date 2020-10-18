@@ -11,10 +11,12 @@ If the language is not defined for devdocs, it googles for the keyword and adds 
 ## Configuration
 * There are options to enable/disable specific online help (see contributions).
 
-## Specific online help pages
+## Specific online help pages to keyword selection
 * RxJs operators (javascript, typescript, typescriptreact)
 * Typescript basic types (typescript, typescriptreact)
 * Html (html)
 * Devdocs (typescript, typescriptreact, javascript, html, css, c, c++, java, python, ruby, rust, perl, php);
-...will be extended...
+
+## Online help according to the language file
+* If nothing is selected, it will open reference pages related to the file type like groovy, dockerfile, C, C++, powershell,...
 

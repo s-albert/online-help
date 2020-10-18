@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import { Rxjs } from './rxjs';
 import { Typescript } from './typescript';
-import { Html } from './html';
+import { Dotnet } from './dotnet';
 import { Devdocs } from './devdocs';
 import { Fallback } from './fallback';
 
@@ -22,7 +22,7 @@ export function activate(context: vscode.ExtensionContext): void {
   context.subscriptions.push(
     regCommand(
       'online-help.openLink',
-      () => Rxjs.openLink() || Typescript.openLink() || Html.openLink() || Devdocs.openLink() || Fallback.openLink()
+      () => Rxjs.openLink() || Typescript.openLink() || Dotnet.openLink() || Devdocs.openLink() || Fallback.openLink()
     )
   );
 }

@@ -14,9 +14,29 @@ const vsLanguages = [
   'rust',
   'perl',
   'php',
+  'closure',
+  'coffeescript',
+  'go',
 ];
 
-const dedocsLanguages = ['ts', 'ts', 'js', 'html', 'css', 'c', 'cpp', 'java', 'python', 'ruby', 'rust', 'perl', 'php'];
+const dedocsLanguages = [
+  'ts',
+  'ts',
+  'js',
+  'html',
+  'css',
+  'c',
+  'cpp',
+  'java',
+  'python',
+  'ruby',
+  'rust',
+  'perl',
+  'php',
+  'closure',
+  'coffeescript',
+  'go',
+];
 
 export class Devdocs {
   static openLink(): boolean {

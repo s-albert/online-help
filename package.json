@@ -2,7 +2,7 @@
   "name": "online-help",
   "displayName": "Online Help",
   "description": "Context sensitive online help",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "publisher": "salbert",
   "scripts": {
     "vscode:prepublish": "npm run compile",

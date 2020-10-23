@@ -21,7 +21,7 @@ export class Fallback {
             return true;
           case 'typescript':
           case 'typescriptreact':
-            vscode.env.openExternal(vscode.Uri.parse('https://www.typescriptlang.org'));
+            vscode.env.openExternal(vscode.Uri.parse('https://www.typescriptlang.org/docs/handbook/'));
             return true;
           case 'javascript':
             vscode.env.openExternal(vscode.Uri.parse('https://developer.mozilla.org/de/docs/Web/JavaScript'));

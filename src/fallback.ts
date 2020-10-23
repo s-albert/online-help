@@ -6,7 +6,7 @@ export class Fallback {
     if (activeTextEditor) {
       const language = activeTextEditor.document.languageId;
       const selection = activeTextEditor.selection;
-      if (selection) {
+      if (selection && !selection.isEmpty) {
         const text = activeTextEditor.document.getText(selection).trim();
         if (vscode.workspace.getConfiguration().get('online-help.enableFallback', true)) {
           vscode.env.openExternal(vscode.Uri.parse(`https://www.google.com/search?q=${language} ${text}`));

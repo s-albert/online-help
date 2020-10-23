@@ -32,7 +32,7 @@ export class Devdocs {
               vscode.window.activeTextEditor.selection.active
             );
           }
-          if (!selection.isEmpty) {
+          if (selection && !selection.isEmpty) {
             const text = activeTextEditor.document.getText(selection).trim();
             const keyword = text.toLowerCase();
             vscode.env.openExternal(vscode.Uri.parse(`http://devdocs.io/#q=${dedocsLanguages[index]} ${keyword}`));

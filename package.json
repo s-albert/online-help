@@ -2,7 +2,7 @@
   "name": "online-help",
   "displayName": "Online Help",
   "description": "Context sensitive online help",
-  "version": "0.2.1",
+  "version": "0.2.4",
   "publisher": "salbert",
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -40,6 +40,10 @@
       {
         "command": "online-help.openLink",
         "title": "Open online help"
+      },
+      {
+        "command": "online-help.openClipboardLink",
+        "title": "Open help about clipboard text"
       }
     ],
     "menus": {
@@ -47,7 +51,7 @@
         {
           "command": "online-help.openLink",
           "key": "ctrl+shift+f1",
-          "group": "9_cutcopypaste"
+          "group": "navigation"
         }
       ]
     },
@@ -55,6 +59,10 @@
       {
         "command": "online-help.openLink",
         "key": "ctrl+shift+f1"
+      },
+      {
+        "command": "online-help.openClipboardLink",
+        "key": "ctrl+shift+f2"
       }
     ],
     "configuration": {

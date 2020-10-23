@@ -4,6 +4,7 @@ import { Typescript } from './typescript';
 import { Dotnet } from './dotnet';
 import { Devdocs } from './devdocs';
 import { Fallback } from './fallback';
+import { Clipboard } from './clipboard';
 
 /**
  * Runs command
@@ -23,6 +24,13 @@ export function activate(context: vscode.ExtensionContext): void {
     regCommand(
       'online-help.openLink',
       () => Rxjs.openLink() || Typescript.openLink() || Dotnet.openLink() || Devdocs.openLink() || Fallback.openLink()
+    )
+  );
+
+  context.subscriptions.push(
+    regCommand(
+      'online-help.openClipboardLink',
+      () => Clipboard.openLink()
     )
   );
 }

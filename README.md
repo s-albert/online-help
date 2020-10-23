@@ -16,7 +16,11 @@ If the language is not defined for devdocs, it googles for the keyword and adds 
 * Typescript basic types (typescript, typescriptreact)
 * Html (html)
 * Devdocs (typescript, typescriptreact, javascript, html, css, c, c++, java, python, ruby, rust, perl, php);
+    Go to https://devdocs.io/ and enable the desired help topics at first
 
 ## Online help according to the language file
 * If nothing is selected, it will open reference pages related to the file type like groovy, dockerfile, C, C++, powershell,...
+
+## Open browser help about the clipboard text
+* If you copied e.g. an error message stackoverflow will open and search for the clipboard text.
 

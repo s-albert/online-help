@@ -21,7 +21,11 @@ export class Fallback {
             return true;
           case 'typescript':
           case 'typescriptreact':
-            vscode.env.openExternal(vscode.Uri.parse('https://www.typescriptlang.org/docs/handbook/'));
+            if (activeTextEditor.document.fileName.endsWith('.spec.ts')) {
+              vscode.env.openExternal(vscode.Uri.parse('https://jasmine.github.io/api/edge/global'));
+            } else {
+              vscode.env.openExternal(vscode.Uri.parse('https://www.typescriptlang.org/docs/handbook/'));
+            }
             return true;
           case 'javascript':
             vscode.env.openExternal(vscode.Uri.parse('https://developer.mozilla.org/de/docs/Web/JavaScript'));

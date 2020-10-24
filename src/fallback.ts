@@ -29,6 +29,17 @@ export class Fallback {
           case 'cpp':
             vscode.env.openExternal(vscode.Uri.parse('https://www.tutorialspoint.com/cplusplus/cpp_references.htm'));
             return true;
+          case 'csharp':
+            vscode.env.openExternal(
+              vscode.Uri.parse('https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/')
+            );
+            return true;
+          case 'html':
+            vscode.env.openExternal(vscode.Uri.parse('https://developer.mozilla.org/en-US/docs/Web/HTML/Element'));
+            return true;
+          case 'css':
+            vscode.env.openExternal(vscode.Uri.parse('https://developer.mozilla.org/en-US/docs/Web/CSS/Reference'));
+            return true;
           case 'c':
             vscode.env.openExternal(
               vscode.Uri.parse('https://docs.microsoft.com/en-us/cpp/c-language/c-language-reference')
@@ -56,7 +67,7 @@ export class Fallback {
             return true;
 
           default:
-            vscode.window.showErrorMessage(`No word can be extracted at your current position.`);
+            vscode.window.showErrorMessage(`No keyword can be extracted at the current position.`);
         }
       }
     } else {

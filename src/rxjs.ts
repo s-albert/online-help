@@ -160,7 +160,7 @@ export class Rxjs {
           }
           if (rxjsCreatonOperators.indexOf(text) >= 0) {
             const keyword = text.toLowerCase();
-            vscode.env.openExternal(vscode.Uri.parse(`https://devdocs.io/rxjs/api/function/${keyword}`));
+            vscode.env.openExternal(vscode.Uri.parse(`https://devdocs.io/rxjs/api/index/function/${keyword}`));
             return true;
           } else if (rxjsOperators.indexOf(text) >= 0) {
             const keyword = text.toLowerCase();

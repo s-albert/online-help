@@ -17,6 +17,11 @@ const vsLanguages = [
   'closure',
   'coffeescript',
   'go',
+  'dart',
+  'bash',
+  'bootstrap',
+  'cpp',
+  'markdown',
 ];
 
 const dedocsLanguages = [
@@ -36,6 +41,11 @@ const dedocsLanguages = [
   'closure',
   'coffeescript',
   'go',
+  'dart',
+  'bash',
+  'bootstrap',
+  'cpp',
+  'markdown',
 ];
 
 export class Devdocs {
@@ -44,6 +54,7 @@ export class Devdocs {
       const activeTextEditor = vscode.window.activeTextEditor;
       const languageId = activeTextEditor.document.languageId;
       const index = vsLanguages.indexOf(languageId);
+      const customLang = vscode.workspace.getConfiguration().get('online-help.setDevdocsLang');
       if (index > -1) {
         let selection: vscode.Range = activeTextEditor.selection;
         if (selection) {
@@ -55,7 +66,11 @@ export class Devdocs {
           if (selection && !selection.isEmpty) {
             const text = activeTextEditor.document.getText(selection).trim();
             const keyword = text.toLowerCase();
-            vscode.env.openExternal(vscode.Uri.parse(`http://devdocs.io/#q=${dedocsLanguages[index]} ${keyword}`));
+            if (customLang) {
+              vscode.env.openExternal(vscode.Uri.parse(`http://devdocs.io/#q=${customLang} ${keyword}`));
+            } else {
+              vscode.env.openExternal(vscode.Uri.parse(`http://devdocs.io/#q=${dedocsLanguages[index]} ${keyword}`));
+            }
             return true;
           }
         }

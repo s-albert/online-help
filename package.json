@@ -25,7 +25,7 @@
   },
   "license": "MIT",
   "engines": {
-    "vscode": "^1.40.0"
+    "vscode": "^1.56.0"
   },
   "categories": [
     "Other",
@@ -84,10 +84,15 @@
           "default": true,
           "description": "When enabled, shows help for dotnet."
         },
-        "online-help.enableDevdocs": {
+        "online-help.devdocs.enableDevdocs": {
           "type": "boolean",
           "default": true,
-          "description": "When enabled, shows help on devdocs.io"
+          "markdownDescription": "When enabled, shows help on [devdocs.io](https://devdocs.io)."
+        },
+        "online-help.devdocs.setDevdocsLang": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Manually sets the search language for [devdocs.io](https://devdocs.io). If Online Help is not finding your language on [devdocs.io](https://devdocs.io), enter the name of the language shown on [devdocs.io](https://devdocs.io). Only applies when `#online-help.devdocs.enableDevdocs#` is checked. "
         },
         "online-help.enableFallback": {
           "type": "boolean",
